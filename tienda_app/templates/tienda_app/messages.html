@@ -1,0 +1,7 @@
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{message.extra_tags}} animate__animated animate__fadeOut animate__delay-5s " role="alert">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endif %}

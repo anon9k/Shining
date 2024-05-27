@@ -1,0 +1,35 @@
+{% extends 'tienda_app/base_template.html' %}
+
+{% block index %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+
+        {% comment %} {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.extra_tags}} animate__animated animate__fadeOut animate__delay-5s " role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %} {% endcomment %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger animate__animated animate__fadeOut animate__delay-5s " role="alert">
+                Houbo un problema co seu rexistro. Por favor, corrixa os erros e inténteo de novo.
+            </div>
+        {% endif %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <br/>
+            <br/>
+
+            <input type="submit" class="btn btn-primary" value="rexistrarse">
+        </form>
+    </div>
+</section>
+
+{% endblock %}

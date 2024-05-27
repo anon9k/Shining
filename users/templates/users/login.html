@@ -1,0 +1,22 @@
+{% extends 'tienda_app/base_template.html' %}
+
+{% block index %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+
+        {% include 'tienda_app/messages.html' %}
+
+        <form action="" method="post">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            <br/>
+
+
+            <input type="submit" class="btn btn-primary" value="login">
+        </form>
+    </div>
+</section>
+
+{% endblock %}
