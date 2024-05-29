@@ -17,10 +17,21 @@
                 <li><a class="nav-link" href="{% url 'shop' %}">Shop</a></li>
                 <li><a class="nav-link" href="{% url 'about' %}">About us</a></li>
                 <li><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+                {% if user.is_authenticated %}
+                    
+                {% endif %}
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="#"><img src="{% static 'tienda_app/images/user.svg' %}"></a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    <li><a class="nav-link"><img src="{% static 'tienda_app/images/user.svg' %}">    {{request.user.username}}</a></li>
+                {% else %}
+                <li><a class="nav-link" href="{% url 'register_user' %}">Registrarse</a></li>
+                <li><a class="nav-link" href="{% url 'login' %}"><img src="{% static 'tienda_app/images/user.svg' %}">Iniciar sesión</a></li>
+                
+                {% endif %}
+                
                 <li><a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'tienda_app/images/cart.svg' %}"></a></li>
             </ul>
         </div>

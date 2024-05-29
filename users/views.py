@@ -26,7 +26,7 @@ def login_user(request):
         form = LoginUserForm()
 
     context = {'form': form}
-    return render(request, 'usuarios/login.html', context)
+    return render(request, 'users/login.html', context)
 
 
 def logout_user(request):
@@ -56,6 +56,6 @@ def register_user(request):
         form = RegisterUserForm()
 
     context = {'form': form}
-    return render(request, 'usuarios/register_user.html', context)
+    return render(request, 'users/register_user.html', context)
 
 
