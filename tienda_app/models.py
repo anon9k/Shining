@@ -11,3 +11,6 @@ class Item(models.Model ):
        ('AB','Abrigo'),
     ]
     categoria = models.CharField(max_length=20, choices=opciones_categoria, default="Nombre prenda")
+    
+    def __str__(self):
+      return f'{self.nombre} - ID: {self.id} - Stock: {self.stock}'
