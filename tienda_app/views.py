@@ -14,8 +14,5 @@ def about(request):
 def contact(request):
     return render(request, 'tienda_app/contact.html',)
 
-def cart(request):
-    return render(request, 'tienda_app/cart.html',)
-
 def checkout(request):
     return render(request, 'tienda_app/checkout.html',)
