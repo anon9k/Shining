@@ -29,7 +29,6 @@
                               <th class="product-name">Product</th>
                               <th class="product-price">Price</th>
                               <th class="product-quantity">Quantity</th>
-                              <th class="product-total">Total</th>
                               <th class="product-remove">Remove</th>
                             </tr>
                           </thead>
@@ -37,15 +36,15 @@
                         <!-- inicio item cart-->
 
 
-                          {% for elemento in carrito.elementos.all %}
+                          {% for item in carrito.elementos.all %}
                             <tr>
 
                               <td class="product-name">
-                                <h2 class="h5 text-black">{{ elemento.nombre}}</h2>
+                                <h2 class="h5 text-black">{{ item.prenda.nombre }}</h2>
                               </td>
-                              <td><p>{{ elemento.precio }}</p></td>
+                              <td><p>{{ item.prenda.precio }}</p></td>
                               <td>
-                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px; margin-left: 30%">
                                   <div class="input-group-prepend">
                                     <button class="btn btn-outline-black decrease" type="button">&minus;</button>
                                   </div>
@@ -55,8 +54,8 @@
                                   </div>
                                 </div>
                               
-                              </td><td>$49.00</td>
-                              <td><a href="{% url 'eliminar_del_carrito' elemento.id %}" class="btn btn-black btn-sm">X</a></td>
+                              </td>
+                              <td><a href="{% url 'eliminar_del_carrito' item.id %}" class="btn btn-black btn-sm">X</a></td>
                             </tr>
                           {% endfor %}
                         {% endif %}
@@ -71,7 +70,7 @@
                 <div class="col-md-6">
                   <div class="row mb-5">
                     <div class="col-md-6">
-                     <a href="shop.html" class="btn">Seguir comprando</a>
+                     <a href="{% url 'shop' %}" class="btn">Seguir comprando</a>
                     </div>
                   </div>
 

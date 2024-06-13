@@ -7,10 +7,16 @@ from .models import Item, Cart, ElementoCarrito
 from django.contrib.auth.models import User
 from .models import Cart
 
-
 def cart(request):
     return render(request, 'cart/cart.html',)
 
+@login_required
+def checkout(request):
+    prendas = Item.objects.all().order_by('categoria')
+    carrito = get_object_or_404(Cart, usuario=request.user)
+    elementos = carrito.elementos.all()
+    total = sum(elemento.prenda.precio * elemento.cantidad for elemento in elementos)
+    return render(request, 'cart/checkout.html', {'prendas': prendas, 'carrito': carrito, 'total': total})
 
 @receiver(post_save, sender=User)
 def crear_carrito(sender, instance, created, **kwargs):

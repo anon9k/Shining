@@ -15,4 +15,4 @@ def contact(request):
     return render(request, 'tienda_app/contact.html',)
 
 def checkout(request):
-    return render(request, 'tienda_app/checkout.html',)
+    return render(request, 'cart/checkout.html',)
