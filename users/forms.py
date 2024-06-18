@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class RegisterUserForm(UserCreationForm):
-    first_name = forms.CharField(label='Nome')
-    last_name = forms.CharField(label='Apelido')
+    first_name = forms.CharField(label='Nombre')
+    last_name = forms.CharField(label='Apellido')
     email = forms.EmailField()
     is_staff = forms.BooleanField()
     
@@ -21,7 +21,7 @@ class RegisterUserForm(UserCreationForm):
 
 
 class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(label='Nome de usuario', widget=forms.TextInput(attrs={'class':'form-control'}))
+    username = forms.CharField(label='Nombre de usuario', widget=forms.TextInput(attrs={'class':'form-control'}))
     password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'form-control'}))
 
 

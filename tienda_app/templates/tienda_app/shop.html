@@ -15,7 +15,12 @@
 			
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="{% url 'agregar_al_carrito' prenda.id %}">
-							<img src="{% static 'tienda_app/images/product-3.png' %}" class="img-fluid product-thumbnail">
+							{% if prenda.imagen %}
+								<img class="card-img-top" src="{{ prenda.imagen.url }}" alt="..." />
+							{% else %}
+								<img class="card-img-top"
+								src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+							{% endif %}
 							<h3 class="product-title"> {{ prenda.nombre }} </h3>
 							<strong class="product-price">${{ prenda.precio }}</strong>
 

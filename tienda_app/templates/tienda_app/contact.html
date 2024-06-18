@@ -42,7 +42,7 @@
                       </svg>
                     </div> <!-- /.icon -->
                     <div class="service-contents">
-                      <p>info@yourdomain.com</p>
+                      <p>info@shining.com</p>
                     </div> <!-- /.service-contents-->
                   </div> <!-- /.service -->
                 </div>
@@ -55,38 +55,36 @@
                       </svg>
                     </div> <!-- /.icon -->
                     <div class="service-contents">
-                      <p>+1 294 3925 3939</p>
+                      <p>+34 674 58 47 41</p>
                     </div> <!-- /.service-contents-->
                   </div> <!-- /.service -->
                 </div>
               </div>
 
-              <form>
-                <div class="row">
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label class="text-black" for="fname">First name</label>
-                      <input type="text" class="form-control" id="fname">
-                    </div>
+              <form id="contact-form">
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label for="c_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="c_fname" name="c_fname">
                   </div>
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label class="text-black" for="lname">Last name</label>
-                      <input type="text" class="form-control" id="lname">
-                    </div>
+                  <div class="col-md-6">
+                    <label for="c_lname" class="text-black">Apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="c_lname" name="c_lname">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="text-black" for="email">Email address</label>
-                  <input type="email" class="form-control" id="email">
+                <div class="col-md-13">
+                  <label for="c_email_address" class="text-black">Email<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="c_email_address" name="c_email_address">
                 </div>
 
                 <div class="form-group mb-5">
-                  <label class="text-black" for="message">Message</label>
+                  <label class="text-black" for="message">Mensaje</label>
                   <textarea name="" class="form-control" id="message" cols="30" rows="5"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+                <div class="col-md-6">
+                  <button type="submit" onclick="validar()" class="btn">Enviar mensaje</button>
+                </div>
               </form>
 
             </div>

@@ -123,6 +123,7 @@ a {
   .hero .hero-img-wrap {
     position: relative; }
     .hero .hero-img-wrap img {
+      height: 10%;
       position: relative;
       top: 0px;
       right: 0px;

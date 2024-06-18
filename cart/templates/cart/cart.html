@@ -42,15 +42,15 @@
                               <td class="product-name">
                                 <h2 class="h5 text-black">{{ item.prenda.nombre }}</h2>
                               </td>
-                              <td><p>{{ item.prenda.precio }}</p></td>
+                              <td><p>${{ item.prenda.precio }}</p></td>
                               <td>
                                 <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px; margin-left: 30%">
                                   <div class="input-group-prepend">
-                                    <button class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                    <a  href=" {% url 'quitar_unidad_al_carrito' item.prenda.id %} " class="btn btn-outline-black decrease" type="button">&minus;</a>
                                   </div>
-                                  <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                  <input type="text" class="form-control text-center quantity-amount" readonly  value="{{item.cantidad}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                   <div class="input-group-append">
-                                    <button class="btn btn-outline-black increase" type="button">&plus;</button>
+                                    <a href=" {% url 'agregar_al_carrito' item.prenda.id %} " class="btn btn-outline-black increase" type="button">&plus;</a>
                                   </div>
                                 </div>
                               
