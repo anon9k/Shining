@@ -3,16 +3,6 @@
 
 {% block index %}
 	<body>
-
-		<!-- Start Header/Navigation -->
-		<!-- End Header/Navigation -->
-
-		<!-- Start Hero Section -->
-
-		<!-- End Hero Section -->
-
-		
-
 		<div class="untree_co-section before-footer-section">
             <div class="container">
               <div class="row mb-5">
@@ -26,16 +16,13 @@
                         <table class="table">
                           <thead>
                             <tr>
-                              <th class="product-name">Product</th>
-                              <th class="product-price">Price</th>
-                              <th class="product-quantity">Quantity</th>
-                              <th class="product-remove">Remove</th>
+                              <th class="product-name">Producto</th>
+                              <th class="product-price">Precio</th>
+                              <th class="product-quantity">Cantidad</th>
+                              <th class="product-remove">Eliminar</th>
                             </tr>
                           </thead>
                           <tbody>
-                        <!-- inicio item cart-->
-
-
                           {% for item in carrito.elementos.all %}
                             <tr>
 
@@ -59,7 +46,6 @@
                             </tr>
                           {% endfor %}
                         {% endif %}
-                        <!-- fin item cart-->
                       </tbody>
                     </table>
                   </div>
@@ -80,7 +66,7 @@
                     <div class="col-md-7">
                       <div class="row">
                         <div class="col-md-12 text-right border-bottom mb-5">
-                          <h3 class="text-black h4 text-uppercase">Cart Total</h3>
+                          <h3 class="text-black h4 text-uppercase">Total del carrito</h3>
                         </div>
                       </div>
 
@@ -95,7 +81,11 @@
         
                       <div class="row">
                         <div class="col-md-12">
-                          <p><a href = "{% url 'checkout' %}" class="btn btn-black btn-lg py-3 btn-block">Proceed To Checkout</a></p>
+                          {% if carrito.elementos.count == 0 %}
+                          <!--vacio-->
+                          {% else %}
+                          <p><a href = "{% url 'checkout' %}" class="btn btn-black btn-lg py-3 btn-block">Detalles de envío</a></p>
+                          {% endif %}
                         </div>
                       </div>
                     </div>
@@ -104,9 +94,5 @@
               </div>
             </div>
           </div>
-		
-
-		<!-- Start Footer Section -->
-		<!-- End Footer Section -->	
 	</body>
 {% endblock %}

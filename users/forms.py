@@ -7,17 +7,15 @@ class RegisterUserForm(UserCreationForm):
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
     email = forms.EmailField()
-    is_staff = forms.BooleanField()
     
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'is_staff')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(UserCreationForm, self).__init__(*args, **kwargs)
         for field in self.fields:
-            if field != 'is_staff':
-                self.fields[field].widget.attrs.update({'class':'form-control'})
+            self.fields[field].widget.attrs.update({'class':'form-control'})
 
 
 class LoginUserForm(AuthenticationForm):

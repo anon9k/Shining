@@ -2,40 +2,27 @@
 {% load static %}
 
 {% block index %}
-		<!-- Start Header/Navigation -->
-
-		<!-- End Header/Navigation -->
-
-		<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<h1>Ropa de diseño <span clsas="d-block">Hecha a mano</span></h1>
+								<p class="mb-4">Ropa de alta calidad diseñada y hecha con pasión</p>
 								<p><a href="{% url 'shop' %}" class="btn btn-secondary me-2">Shop Now</a><a href="{% url 'shop' %}" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src="{% static 'tienda_app/images/couch.png' %}" class="img-fluid">
+							<div style="margin-top:-3%">
+								<img src="{% static 'tienda_app/images/foto6.png' %}" class="img-fluid" style="height:500px" >
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		<!-- End Hero Section -->
 
-		<!-- Start Product Section -->
-	
-		<!-- End Product Section -->
-
-		<!-- Start Why Choose Us Section -->
 		{% include 'tienda_app/chooseUs.html' %}
-		<!-- End Why Choose Us Section -->
 
-		<!-- Start We Help Section -->
 		<div class="we-help-section">
 			<div class="container">
 				<div class="row justify-content-between">
@@ -47,32 +34,12 @@
 						</div>
 					</div>
 					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-
-						<ul class="list-unstyled custom-list my-4">
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
+						<h2 class="section-title mb-4">Ropa hecha a mano por nuestro artista</h2>
+						<p>Nuestro artista se encarga del diseño y confección de todas nuestras prendas. X; nuestro artista después de muchos años dedicado al arte multidisciplinar se ha decidido a plasmar su arte en su nueva marca de moda; Shining. Para lograr un gran acabado ha pasado varios años aprendiendo y perfeccionando las mejores técnicas de costura</p>
+						<p><a href="{% url 'shop' %}" class="btn">Explorar</a></p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- End We Help Section -->
-
-		<!-- Start Popular Product -->
-		<!-- End Popular Product -->
-
-		<!-- Start Testimonial Slider -->
 		{% include 'tienda_app/testimonials.html' %}
-		<!-- End Testimonial Slider -->
-
-		<!-- Start Blog Section -->
-		<!-- End Blog Section -->	
-
-		<!-- Start Footer Section -->
-		<!-- End Footer Section -->	
 {% endblock %}
