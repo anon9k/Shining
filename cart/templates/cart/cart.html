@@ -1,0 +1,98 @@
+{% extends "tienda_app/base_template.html" %}
+{% load static %}
+
+{% block index %}
+	<body>
+		<div class="untree_co-section before-footer-section">
+            <div class="container">
+              <div class="row mb-5">
+                <form class="col-md-12" method="post">
+                  <div class="site-blocks-table">
+                    {% if carrito.elementos.count == 0 %}
+
+                      <td><p>Tu carrito está vacío.</p></td>
+
+                    {% else %}
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th class="product-name">Producto</th>
+                              <th class="product-price">Precio</th>
+                              <th class="product-quantity">Cantidad</th>
+                              <th class="product-remove">Eliminar</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          {% for item in carrito.elementos.all %}
+                            <tr>
+
+                              <td class="product-name">
+                                <h2 class="h5 text-black">{{ item.prenda.nombre }}</h2>
+                              </td>
+                              <td><p>${{ item.prenda.precio }}</p></td>
+                              <td>
+                                <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px; margin-left: 30%">
+                                  <div class="input-group-prepend">
+                                    <a  href=" {% url 'quitar_unidad_al_carrito' item.prenda.id %} " class="btn btn-outline-black decrease" type="button">&minus;</a>
+                                  </div>
+                                  <input type="text" class="form-control text-center quantity-amount" readonly  value="{{item.cantidad}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                  <div class="input-group-append">
+                                    <a href=" {% url 'agregar_al_carrito' item.prenda.id %} " class="btn btn-outline-black increase" type="button">&plus;</a>
+                                  </div>
+                                </div>
+                              
+                              </td>
+                              <td><a href="{% url 'eliminar_del_carrito' item.id %}" class="btn btn-black btn-sm">X</a></td>
+                            </tr>
+                          {% endfor %}
+                        {% endif %}
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+        
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row mb-5">
+                    <div class="col-md-6">
+                     <a href="{% url 'shop' %}" class="btn">Seguir comprando</a>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-6 pl-5">
+                  <div class="row justify-content-end">
+                    <div class="col-md-7">
+                      <div class="row">
+                        <div class="col-md-12 text-right border-bottom mb-5">
+                          <h3 class="text-black h4 text-uppercase">Total del carrito</h3>
+                        </div>
+                      </div>
+
+                      <div class="row mb-5">
+                        <div class="col-md-6">
+                          <span class="text-black">Total</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                          <strong class="text-black">${{total}}</strong>
+                        </div>
+                      </div>
+        
+                      <div class="row">
+                        <div class="col-md-12">
+                          {% if carrito.elementos.count == 0 %}
+                          <!--vacio-->
+                          {% else %}
+                          <p><a href = "{% url 'checkout' %}" class="btn btn-black btn-lg py-3 btn-block">Detalles de envío</a></p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</body>
+{% endblock %}

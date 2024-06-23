@@ -15,13 +15,13 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, f'Benvido {username}', extra_tags='success')
+                messages.success(request, f'Bienvenido {username}', extra_tags='success')
                 next = request.GET.get('next', 'home')
                 return redirect(next)
         
     else:
         if 'next' in request.GET:
-            messages.success(request, 'Por favor, inicia sesión antes de acceder a esa páxina.', extra_tags='danger')
+            messages.success(request, 'Por favor, inicia sesión antes de acceder a esta página.', extra_tags='danger')
 
         form = LoginUserForm()
 
@@ -32,7 +32,7 @@ def login_user(request):
 def logout_user(request):
 
     logout(request)
-    messages.success(request, 'Acabas de sair do sistema.', extra_tags='success')
+    messages.success(request, 'Acabas de cerrar sesión', extra_tags='success')
     return redirect('home')
 
 
@@ -47,7 +47,7 @@ def register_user(request):
             password = form.cleaned_data['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
-            messages.success(request, f'Benvido {username}', extra_tags='success')
+            messages.success(request, f'Bienvenido {username}', extra_tags='success')
             
             return redirect('home')
         

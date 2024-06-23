@@ -1,0 +1,144 @@
+{% extends "tienda_app/base_template.html" %}
+{% load static %}
+
+{% block index %}
+	<body>
+		<div class="untree_co-section">
+		    <div class="container">
+		      
+		      <div class="row">
+		        <div class="col-md-6 mb-5 mb-md-0">
+		          <h2 class="h3 mb-3 text-black">Detalles de envío</h2>
+		          <div class="p-3 p-lg-5 border bg-white">
+					<form id="billing-form">
+		        	    <div class="form-group">
+		        	      <label for="c_country" class="text-black">País <span class="text-danger">*</span></label>
+		        	      <select id="c_country" class="form-control">
+		        	        <option value="Empty">Selecciona un país</option>    
+		        	        <option value="España">España</option>    
+		        	        <option value="Francia">Francia</option>    
+		        	        <option value="Alemania">Alemania</option>    
+		        	        <option value="Italia">Italia</option>    
+		        	        <option value="UK">UK</option>    
+		        	        <option value="Portugal">Portugal</option>    
+		        	      </select>
+		        	    </div>
+		        	    <div class="form-group row">
+		        	      <div class="col-md-6">
+		        	        <label for="c_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_fname" name="c_fname">
+		        	      </div>
+		        	      <div class="col-md-6">
+		        	        <label for="c_lname" class="text-black">Apellido <span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_lname" name="c_lname">
+		        	      </div>
+		        	    </div>
+
+		        	    <div class="form-group row">
+		        	      <div class="col-md-12">
+		        	        <label for="c_companyname" class="text-black">Empresa(Opcional) </label>
+		        	        <input type="text" class="form-control" id="c_companyname" name="c_companyname">
+		        	      </div>
+		        	    </div>
+
+		        	    <div class="form-group row">
+		        	      <div class="col-md-12">
+		        	        <label for="c_address" class="text-black">Dirección <span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_address" name="c_address">
+		        	      </div>
+		        	    </div>
+
+		        	    <div class="form-group mt-3">
+		        	      <input type="text" class="form-control" placeholder="Número, habitación,  etc. (optional)">
+		        	    </div>
+
+		        	    <div class="form-group row">
+		        	      <div class="col-md-6">
+		        	        <label for="c_state_country" class="text-black">Ciudad/Pueblo <span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_state_country" name="c_state_country">
+		        	      </div>
+		        	      <div class="col-md-6">
+		        	        <label for="c_postal_zip" class="text-black">Código Postal<span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
+		        	      </div>
+		        	    </div>
+
+		        	    <div class="form-group row mb-5">
+		        	      <div class="col-md-6">
+		        	        <label for="c_email_address" class="text-black">Email<span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_email_address" name="c_email_address">
+		        	      </div>
+		        	      <div class="col-md-6">
+		        	        <label for="c_phone" class="text-black">Teléfono <span class="text-danger">*</span></label>
+		        	        <input type="text" class="form-control" id="c_phone" name="c_phone">
+		        	      </div>
+		        	    </div>	
+
+		        	    <div class="form-group">
+		        	      <label for="c_order_notes" class="text-black">Notas</label>
+		        	      <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control"></textarea>
+		        	    </div>
+
+		        	   </div>
+		        	  </div>
+		        	  <div class="col-md-6">
+		        	   <div class="row mb-5">
+		        	    <div class="col-md-12">
+		        	      <h2 class="h3 mb-3 text-black">Pedido</h2>
+		        	      <div class="p-3 p-lg-5 border bg-white">
+		        	        <table class="table site-block-order-table mb-5">
+		        	          <thead>
+		        	            <th>Product</th>
+		        	            <th>Total</th>
+		        	          </thead>
+		        	          <tbody>
+
+								{% for item in elementos %}
+
+		        	            <tr>
+		        	              <td>{{ item.prenda.nombre }}<strong class="mx-2">x</strong> {{ item.cantidad }}</td>
+		        	              <td> ${{ item.subtotal }} </td>
+		        	            </tr>
+
+								{% endfor %}
+
+		        	            <tr>
+		        	              <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+		        	              <td class="text-black font-weight-bold"><strong>${{total}}</strong></td>
+		        	            </tr>
+		        	          </tbody>
+		        	        </table>
+
+		        	        <div class="border p-3 mb-3">
+		        	          <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Tarjeta de crédito</a></h3>
+
+		        	          <div class="collapse" id="collapsebank">
+		        	            <div class="py-2">
+		        	              <p class="mb-0">Esta página está hecha para un proyecto de fin de grado por lo que el pago está desactivado</p>
+		        	            </div>
+		        	          </div>
+		        	        </div>
+
+		        	        <div class="border p-3 mb-3">
+		        	          <h3 class="h6 mb-0"><a class="d-block" data-bs-toggle="collapse" href="#collapsecheque" role="button" aria-expanded="false" aria-controls="collapsecheque">PayPal</a></h3>
+
+		        	          <div class="collapse" id="collapsecheque">
+		        	            <div class="py-2">
+		        	              <p class="mb-0">Esta página está hecha para un proyecto de fin de grado por lo que el pago está desactivado</p>
+		        	            </div>
+		        	          </div>
+		        	        </div>
+
+							<div class="col-md-6">
+								<button type="submit" class="btn">Realizar pedido</button>
+							</div>
+					</form>
+		              </div>
+		            </div>
+		          </div>
+
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+{% endblock %}

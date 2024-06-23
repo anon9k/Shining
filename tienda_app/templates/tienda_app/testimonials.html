@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 mx-auto text-center">
-                <h2 class="section-title">Testimonials</h2>
+                <h2 class="section-title">Opiniones</h2>
             </div>
         </div>
 
@@ -19,13 +19,14 @@
 
                     <div class="testimonial-slider">
                         
+                        {% for i in "012" %}
                         <div class="item">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 mx-auto">
 
                                     <div class="testimonial-block text-center">
                                         <blockquote class="mb-5">
-                                            <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
+                                            <p>&ldquo;Descubrir Shining ha sido una de las mejores experiencias en mi camino hacia una moda consciente y elegante. Esta marca no solo se destaca por su impecable diseño y calidad superior, sino también por su compromiso con la sostenibilidad y la responsabilidad social, lo que la convierte en una opción ideal para los consumidores modernos y conscientes.&rdquo;</p>
                                         </blockquote>
 
                                         <div class="author-info">
@@ -33,63 +34,14 @@
                                                 <img src="{% static 'tienda_app/images/person-1.png' %}" alt="Maria Jones" class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Maria Jones</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                        </div> 
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="{% static 'tienda_app/images/person-1.png' %}" alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Maria Jones</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> 
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src="{% static 'tienda_app/images/person-1.png' %}" alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Maria Jones</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div> 
-                        <!-- END item -->
-
+                        </div>
+                        {%endfor%} 
                     </div>
-
                 </div>
             </div>
         </div>

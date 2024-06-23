@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from .models import Item
 
 def home(request):
     return render(request, 'tienda_app/index.html',)
 
 def shop(request):
-    return render(request, 'tienda_app/shop.html',)
+    prendas = Item.objects.all().order_by('categoria')
+    return render(request, 'tienda_app/shop.html', {'prendas': prendas})
 
 def about(request):
     return render(request, 'tienda_app/about.html',)
@@ -12,8 +14,5 @@ def about(request):
 def contact(request):
     return render(request, 'tienda_app/contact.html',)
 
-def cart(request):
-    return render(request, 'tienda_app/cart.html',)
-
 def checkout(request):
-    return render(request, 'tienda_app/checkout.html',)
+    return render(request, 'cart/checkout.html',)
