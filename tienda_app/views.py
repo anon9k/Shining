@@ -4,6 +4,7 @@ from .models import Item
 def home(request):
     return render(request, 'tienda_app/index.html',)
 
+#se accede a todos los Items creados y se ordenan por categoría y se pasan al html
 def shop(request):
     prendas = Item.objects.all().order_by('categoria')
     return render(request, 'tienda_app/shop.html', {'prendas': prendas})
